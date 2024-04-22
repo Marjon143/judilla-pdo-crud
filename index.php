@@ -9,6 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
+        body {
+    background-image: url('https://media.istockphoto.com/id/911910816/vector/metal-texture-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=-YAYlzyurPoRIizKappOSfsv9trOqd_UwvvbPkijG0s=');
+    /* You can set additional properties like background size, repeat, position, etc. */
+    background-size: cover; /* This will make the image cover the entire background */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    /* You can add more properties as needed */
+}
         .wrapper{
             width: 800px;
             margin: 0 auto;
@@ -30,11 +37,11 @@
                 <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
                         <h2 class="pull-left">Products Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
+                        <a href="./public/create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
                     </div>
                     <?php
                     // Include config file
-                    require_once "config.php";
+                    require_once "./db/config.php";
                     
                     // Attempt select query execution
                     $sql = "SELECT * FROM products";
