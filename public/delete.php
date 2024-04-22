@@ -1,5 +1,5 @@
 <?php
-require_once "../db/config.php.php";
+require_once "../db/config.php";
 
 // Process delete operation after confirmation
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bindParam(":id", $id);
             $stmt->execute();
 
-            header("Location: ../index.php.php");
+            header("Location: ../index.php");
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
