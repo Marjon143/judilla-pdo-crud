@@ -1,5 +1,5 @@
 <?php
-require_once "config.php";
+require_once "../db/config.php.php";
 
 // Process delete operation after confirmation
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bindParam(":id", $id);
             $stmt->execute();
 
-            header("Location: index.php");
+            header("Location: ../index.php.php");
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -60,7 +60,7 @@ $id = trim($_GET["id"]);
                             <p>Are you sure you want to delete this product record?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="index.php" class="btn btn-secondary ml-2">No</a>
+                                <a href="../index.php" class="btn btn-secondary ml-2">No</a>
                             </p>
                         </div>
                     </form>
