@@ -1,6 +1,6 @@
 <?php
-// Include config file
-require_once "config.php";
+// Include ../db/config.php file
+require_once "../db/config.php.php";
 
 // Check existence of id parameter before processing further
 if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
@@ -88,7 +88,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Updated Date</label>
                         <p><b><?php echo htmlspecialchars($productUpdatedDate); ?></b></p>
                     </div>
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="../index.php.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
