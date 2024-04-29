@@ -88,7 +88,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Updated Date</label>
                         <p><b><?php echo htmlspecialchars($productUpdatedDate); ?></b></p>
                     </div>
-                    <p><a href="./public/welcome.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="../public/welcome.php" class="btn btn-warning">Back</a></p>
                 </div>
             </div>        
         </div>
