@@ -1,6 +1,6 @@
 <?php
 // Include ../db/config.php file
-require_once "./db/config.php";
+require_once "../db/config.php";
 
 // Define variables and initialize with empty values
 $productName = $productDescription = $productRetailPrice = "";
@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>"/>
                     <input type="submit" class="btn btn-primary" value="Submit">
-                    <a href="..index.php.php" class="btn btn-secondary ml-2">Cancel</a>
+                    <a href="../public/welcome.php" class="btn btn-secondary ml-2">Cancel</a>
                 </form>
             </div>
         </div>
