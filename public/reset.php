@@ -78,6 +78,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Reset Password</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+    background-image: url('https://media.istockphoto.com/id/911910816/vector/metal-texture-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=-YAYlzyurPoRIizKappOSfsv9trOqd_UwvvbPkijG0s=');
+    /* You can set additional properties like background size, repeat, position, etc. */
+    background-size: cover; /* This will make the image cover the entire background */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    /* You can add more properties as needed */
+}
+        .wrapper{
+            width: 800px;
+            margin: 0 auto;
+        }
+        table tr td:last-child{
+            width: 120px;
+        }
         body{ font: 14px sans-serif; }
         .wrapper{ width: 360px; padding: 20px; }
     </style>
