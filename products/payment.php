@@ -100,7 +100,7 @@
            
         </form>
         <div style="text-align: center;">
-            <a href="logistics.html">Confirm</a>
+            <a href="index.php">Confirm</a>
         </div>
     </div>
 

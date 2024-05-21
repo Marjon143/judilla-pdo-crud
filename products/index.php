@@ -104,7 +104,7 @@
           <a class="nav-link" href="reports.html">Reports</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logistics.html">Logistics</a>
+          <a class="nav-link" href="logistics.php">Logistics</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="customerservice.html">Customer Service</a>
