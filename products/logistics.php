@@ -72,7 +72,7 @@
         <p>Your order is on its way to you! Expect it soon.</p>
         </div>
         <div class="go-back">
-            <a href="index.html">Go Back to Home</a>
+            <a href="index.php">Go Back to Home</a>
         </div>
     </div>
     

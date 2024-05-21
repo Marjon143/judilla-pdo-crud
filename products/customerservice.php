@@ -111,7 +111,7 @@
             <input type="submit" value="Submit">
         </form>
         <div style="text-align: center;">
-            <a href="index.html">Go Back to Home</a>
+            <a href="index.php">Go Back to Home</a>
         </div>
     </div>
     

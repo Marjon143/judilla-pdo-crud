@@ -107,7 +107,7 @@
           <a class="nav-link" href="logistics.php">Logistics</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="customerservice.html">Customer Service</a>
+            <a class="nav-link" href="customerservice.php">Customer Service</a>
           </li>
       </ul>
     </div>
@@ -135,7 +135,7 @@
             </div>
         </div>
     
-        <div class="product-item" data-product-id="2" data-quantity="0" data-available="10">
+        <div class="product-item" data-product-id="2" data-quantity="0" data-available="45">
             <img src="" alt="Product 2">
             <div class="product-info">
                 <div class="product-name" style="text-align: center;">Adidas</div>
@@ -151,7 +151,7 @@
             </div>
         </div>
     
-        <div class="product-item" data-product-id="3" data-quantity="0" data-available="10">
+        <div class="product-item" data-product-id="3" data-quantity="0" data-available="15">
             <img src="" alt="Product 3">
             <div class="product-info">
                 <div class="product-name" style="text-align: center;">Converse</div>
@@ -167,7 +167,7 @@
             </div>
         </div>
     
-        <div class="product-item" data-product-id="4" data-quantity="0" data-available="10">
+        <div class="product-item" data-product-id="4" data-quantity="0" data-available="15">
             <img src="" alt="Product 4">
             <div class="product-info">
                 <div class="product-name" style="text-align: center;">Puma</div>
@@ -183,7 +183,7 @@
             </div>
         </div>
     
-        <div class="product-item" data-product-id="5" data-quantity="0" data-available="10">
+        <div class="product-item" data-product-id="5" data-quantity="0" data-available="15">
             <img src="" alt="Product 5">
             <div class="product-info">
                 <div class="product-name" style="text-align: center;">Reebok</div>
@@ -199,7 +199,7 @@
             </div>
         </div>
     
-        <div class="product-item" data-product-id="6" data-quantity="0" data-available="10">
+        <div class="product-item" data-product-id="6" data-quantity="0" data-available="15">
             <img src="" alt="Product 6">
             <div class="product-info">
                 <div class="product-name" style="text-align: center;">Vans</div>
@@ -220,10 +220,16 @@
 
 <script>
     function selectQuantity(productId) {
-        var quantity = parseInt(document.querySelector(`.product-item[data-product-id="${productId}"] .quantity-selector span`).textContent);
-        var available = parseInt(document.querySelector(`.product-item[data-product-id="${productId}"]`).dataset.available);
+        var productItem = document.querySelector(`.product-item[data-product-id="${productId}"]`);
+        var quantity = parseInt(productItem.querySelector(".quantity-selector span").textContent);
+        var available = parseInt(productItem.dataset.available);
+
         if (quantity > 0) {
             if (quantity <= available) {
+                // Update the available quantity
+                productItem.dataset.available = available - quantity;
+                productItem.querySelector(".available span").textContent = available - quantity;
+
                 // Redirect to the payment page
                 window.location.href = "payment.php?productId=" + productId + "&quantity=" + quantity;
             } else {
