@@ -217,26 +217,71 @@
     </div>
     
 </div>
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Confirm Purchase</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to purchase this item?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmButton">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Confirm Purchase</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to purchase this item?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="confirmPurchase()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
+    var selectedProductId = null;
+    var selectedQuantity = null;
+
     function selectQuantity(productId) {
+        selectedProductId = productId;
         var productItem = document.querySelector(`.product-item[data-product-id="${productId}"]`);
         var quantity = parseInt(productItem.querySelector(".quantity-selector span").textContent);
-        var available = parseInt(productItem.dataset.available);
 
         if (quantity > 0) {
-            if (quantity <= available) {
-                // Update the available quantity
-                productItem.dataset.available = available - quantity;
-                productItem.querySelector(".available span").textContent = available - quantity;
-
-                // Redirect to the payment page
-                window.location.href = "payment.php?productId=" + productId + "&quantity=" + quantity;
-            } else {
-                alert("Quantity exceeds available items!");
-            }
+            selectedQuantity = quantity;
+            $('#confirmModal').modal('show');
         } else {
             alert("Please select at least 1 item.");
+        }
+    }
+
+    function confirmPurchase() {
+        var productItem = document.querySelector(`.product-item[data-product-id="${selectedProductId}"]`);
+        var available = parseInt(productItem.dataset.available);
+
+        if (selectedQuantity <= available) {
+            // Update the available quantity
+            productItem.dataset.available = available - selectedQuantity;
+            productItem.querySelector(".available span").textContent = available - selectedQuantity;
+
+            // Redirect to the payment page
+            window.location.href = "dashboard.php?productId=" + selectedProductId + "&quantity=" + selectedQuantity;
+        } else {
+            alert("Quantity exceeds available items!");
         }
     }
 
@@ -254,6 +299,7 @@
         }
     }
 </script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
