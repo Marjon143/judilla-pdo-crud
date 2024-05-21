@@ -225,7 +225,7 @@
         if (quantity > 0) {
             if (quantity <= available) {
                 // Redirect to the payment page
-                window.location.href = "payment.html?productId=" + productId + "&quantity=" + quantity;
+                window.location.href = "payment.php?productId=" + productId + "&quantity=" + quantity;
             } else {
                 alert("Quantity exceeds available items!");
             }
