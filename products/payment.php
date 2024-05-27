@@ -101,7 +101,7 @@
            
         </form>
         <div style="text-align: center;">
-            <a href="products/logistics.php">Confirm</a>
+            <a href="logistics.php">Confirm</a>
         </div>
     </div>
 
