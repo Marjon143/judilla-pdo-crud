@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2024 at 09:59 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 30, 2024 at 08:41 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,86 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `it28-ecommerce.sql`
+-- Database: `it28-ecommerce`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `PaymentID` int(11) NOT NULL,
+  `FullName` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `City` varchar(100) DEFAULT NULL,
+  `ZipCode` varchar(20) DEFAULT NULL,
+  `Country` varchar(100) DEFAULT NULL,
+  `PaymentMode` varchar(50) DEFAULT NULL,
+  `PaymentDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Amount` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`PaymentID`, `FullName`, `Email`, `Address`, `City`, `ZipCode`, `Country`, `PaymentMode`, `PaymentDate`, `Amount`) VALUES
+(1, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:58:26', 0.00),
+(2, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:58:29', 0.00),
+(3, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:58:29', 0.00),
+(1211, 'Marjon Incarnacion Judilla', 'marjonjudilla143@gmail.com', 'Sto Nino', 'Manolo Fortich', '8703', 'Philippines', 'Credit Card', '2024-05-29 23:58:52', 600.00),
+(1212, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:59:00', 0.00),
+(1213, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:59:02', 0.00),
+(1214, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:59:02', 0.00),
+(1215, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:59:02', 0.00),
+(1216, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:59:03', 0.00),
+(1217, '', '', '', '', '', '', 'Credit Card', '2024-05-29 23:59:44', 0.00),
+(1218, '', '', '', '', '', '', 'Credit Card', '2024-05-30 00:04:26', 0.00),
+(1219, '', '', '', '', '', '', 'Credit Card', '2024-05-30 00:07:25', 0.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `description` text NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `rrp` decimal(10,0) NOT NULL DEFAULT 0,
+  `quantity` int(11) NOT NULL,
+  `img` text NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `rrp`, `quantity`, `img`, `date_added`) VALUES
+(8, 'Nike', 'Strategically placed reflective details enhance visibility in low-light conditions, keeping you safe during early morning or evening runs.\r\nSpecifications:', 4000, 9000, 12, 'https://tse1.mm.bing.net/th?id=OIP.e1hXV9nipfQVAylL25rkZwHaHa&pid=Api&P=0&h=220', '2024-05-30 09:37:15'),
+(9, 'Adidas', 'Warm days, cool soles\r\nBeat the heat in style', 3000, 4000, 12, 'https://tse4.mm.bing.net/th?id=OIP.LlNANWP3-ZINaCCOZnT2AwHaHa&pid=Api&P=0&h=220', '2024-05-30 14:35:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchases`
+--
+
+CREATE TABLE `purchases` (
+  `PurchaseID` int(11) NOT NULL,
+  `ProductID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `TotalPrice` decimal(10,2) NOT NULL,
+  `PurchaseDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `PaymentMode` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -40,12 +118,52 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 (1, 'admin', '$2y$10$kGp4g1TjBK4XwLIwRbBHSeZ4W5FpPbYoB1ap5NfFUjUPAcE3KR5QG', '2024-04-29 16:39:58'),
-(0, 'jimjim', '$2y$10$MBe5y9.ZFkpJZnLImk8VoODPlNAHmLo4bACZtk/kdyqsixB7nU3hC', '2024-05-24 22:15:50'),
-(0, 'jim', '$2y$10$X//sBW8xjgFshs3GOfJAbeeGoufNHrBJUIZzmsIJkaeKqMTt3KnWq', '2024-05-24 22:17:14'),
-(0, 'admin11', '$2y$10$vrDO0OMbqLTT6MsAvo4rrO/4KgWmKCFzNDML9ZDISOEApzUpPPkny', '2024-05-24 22:18:34'),
-(0, 'admin111', '$2y$10$8pBIrPSeNS5Q/rH4/Or3XOwDOiZL70OiVFdbqlnUG7r.sQkv1QcuK', '2024-05-27 15:26:34'),
-(0, 'moymoy', '$2y$10$eO8jKnR6NewAGxmOOP0rI.U/JjLkgbpyPRYNTa/ImrF2Q3J3/5YN2', '2024-05-27 15:27:02'),
-(0, 'moimoi', '$2y$10$kJ1UYH.BpB2Qq4pF6suLx.Ub8JpQQCF2Csv05zIactOIJyPtm.B/O', '2024-05-27 15:32:13');
+(0, 'www', '$2y$10$nVDdKFXpZ9gK6qELPb.VTOoxLNjUfK4UZa9aIu6IxVrqMcFooETDW', '2024-05-27 17:02:58'),
+(0, 'ppp', '$2y$10$iiEE/JcS7rZcLeSQvoHtbeIY9uT7Yea/vAfKRc9vjMU8AeS.a58oi', '2024-05-30 09:34:11');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`PaymentID`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD PRIMARY KEY (`PurchaseID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1220;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `purchases`
+--
+ALTER TABLE `purchases`
+  MODIFY `PurchaseID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
