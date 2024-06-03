@@ -1,15 +1,15 @@
 <?php
 // config.php
 
-$host = 'localhost';
-$dbname = 'marjon';
-$username = 'root';
-$password = '';
-
 // $host = 'localhost';
-// $dbname = 'u593341949_db_judilla';
-// $username = 'u593341949_dev_judilla';
-// $password = '20191336Judilla';
+// $dbname = 'parane1';
+// $username = 'root';
+// $password = '';
+
+$host = 'localhost';
+$dbname = 'u593341949_db_judilla';
+$username = 'u593341949_dev_judilla';
+$password = '20191336Judilla';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
