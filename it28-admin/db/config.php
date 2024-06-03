@@ -1,15 +1,15 @@
 <?php
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-// define('DB_SERVER', 'localhost');
-// define('DB_USERNAME', 'root');
-// define('DB_PASSWORD', '');
-// define('DB_NAME', 'parane1');
-
 define('DB_SERVER', 'localhost');
-define('DB_NAME', 'u593341949_db_parane');
-define('DB_USERNAME', 'u593341949_dev_parane');
-define('DB_PASSWORD', '20212088Parane'); 
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'marjon');
+
+// define('DB_SERVER', 'localhost');
+// define('DB_NAME', 'u593341949_db_parane');
+// define('DB_USERNAME', 'u593341949_dev_parane');
+// define('DB_PASSWORD', '20212088Parane'); 
 
 /* Attempt to connect to MySQL database */
 try{
