@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2024 at 02:14 PM
+-- Generation Time: Jun 03, 2024 at 06:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `parane1`
+-- Database: `marjon`
 --
 
 -- --------------------------------------------------------
@@ -43,9 +43,7 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`address_id`, `street`, `city`, `state`, `zip`, `country`, `created_at`, `payment_id`) VALUES
-(19, 'Calanawan', 'Manolo Fortich, Bukidnon', 'Mindanao', '3232', 'Philippines', '2024-06-02 12:01:44', 0),
-(20, 'Calanawan', 'Manolo Fortich, Bukidnon', 'Mindanao', '3232', 'Philippines', '2024-06-02 12:08:31', 0),
-(21, 'sample', 'sample', 'sample', 'sample', 'sample', '2024-06-02 12:10:32', 0);
+(22, 'Sto Niño', 'Manolo Fortich', 'Bukidnon', '8703', 'Philippines', '2024-06-03 04:24:07', 0);
 
 -- --------------------------------------------------------
 
@@ -68,8 +66,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`payment_id`, `product_name`, `price`, `total`, `payment_method`, `created_at`, `product_id`) VALUES
-(16, 'Isaw', 25.00, 25.00, 'GCash', '2024-06-02 11:29:27', 1),
-(33, 'Isaw', 25.00, 175.00, 'GCash', '2024-06-02 12:08:26', 1);
+(34, 'Realme 12', 9000.00, 9000.00, 'GCash', '2024-06-03 04:24:00', 12);
 
 -- --------------------------------------------------------
 
@@ -94,11 +91,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `rrp`, `quantity`, `img`, `date_added`, `user_id`) VALUES
-(1, 'Isaw', 'Grilled chicken or pork intestines marinated in a tangy and spicy sauce.', 20, 25, 50, 'https://www.lasabbq.com/cdn/shop/products/BBQChickenIsaw1.jpg', '2024-05-08 00:00:00', 0),
-(2, 'Balut', 'Fertilized duck embryo boiled and commonly sold as street food in the Philippines.', 15, 20, 30, 'https://facts.net/wp-content/uploads/2020/10/AdobeStock_279704615.jpeg', '2024-05-08 00:00:00', 0),
-(3, 'Kwek-Kwek', 'Quail eggs coated in orange batter and deep-fried, often served with vinegar.', 10, 15, 40, 'https://www.kawalingpinoy.com/wp-content/uploads/2019/07/kwek-kwek-14.jpg', '2024-05-08 00:00:00', 0),
-(4, 'Fish Balls', 'Deep-fried fish balls served with sweet and spicy sauce.', 12, 18, 60, 'https://www.foxyfolksy.com/wp-content/uploads/2021/05/fish-balls.jpg', '2024-05-08 00:00:00', 0),
-(5, 'Taho', 'Silken tofu topped with sweet syrup and tapioca pearls.', 25, 30, 20, 'https://i0.wp.com/iankewks.com/wp-content/uploads/2023/06/IMG_2347.jpg', '2024-05-08 00:00:00', 0);
+(11, 'Infinix Hot40 Pro', 'The Infinix Hot 40 Pro is a feature-rich smartphone designed for users seeking a balance of performance and affordability.', 7499, 8000, 15, 'https://i.pinimg.com/564x/b3/fa/52/b3fa52cba737475b3edb01316998e244.jpg', '2024-06-03 12:17:36', 0),
+(12, 'Realme 12', 'The Realme 12 Pro and 12 Pro+ are now officially announced with telephoto lenses – marking a first for the series.', 8699, 9000, 10, 'https://i.pinimg.com/564x/8c/88/e5/8c88e5d5fc2777b6b9b8627d3f3b8fea.jpg', '2024-06-03 12:23:29', 0);
 
 -- --------------------------------------------------------
 
@@ -118,10 +112,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `created_at`) VALUES
-(1, 'admin', '$2y$10$kGp4g1TjBK4XwLIwRbBHSeZ4W5FpPbYoB1ap5NfFUjUPAcE3KR5QG', '2024-04-29 16:39:58'),
-(2, 'arlene', '$2y$10$JbxintLe9rHvRuCGIVZfd.fk943ESa5pITzzXJ6.4bTBsdUj3CqJa', '2024-05-23 23:22:35'),
-(3, 'test1', '$2y$10$.RkUpNRmmXtp0ZGe97ojG.lZjZq8nBuTl60TsXiwq1rVkC/lV/7Xe', '2024-05-30 04:17:31'),
-(4, 'temp', '$2y$10$ptpvm642.ZqY9BZ48qrYy.vO4dsNXmTNN8zXIOus1aSHV8JxyQlGW', '2024-05-30 04:17:50');
+(3, 'test1', '$2y$10$.RkUpNRmmXtp0ZGe97ojG.lZjZq8nBuTl60TsXiwq1rVkC/lV/7Xe', '2024-05-30 04:17:31');
 
 --
 -- Indexes for dumped tables
@@ -159,19 +150,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
