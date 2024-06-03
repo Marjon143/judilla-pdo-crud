@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
+            background-image: url('https://i.pinimg.com/564x/27/d6/24/27d624530047b4f4fadcf19cfea1c2e9.jpg'); 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-size: cover;
         }
         .navbar {
             margin-bottom: 20px;
@@ -75,8 +77,8 @@
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-        <img src="it28-admin/images/Final Logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-        PARANE FOOD HUB
+        <img src="it28-admin/images/MAR.jpg" width="50" height="50" class="d-inline-block align-top" alt="">
+        MARJON'S TECHSIDE
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
